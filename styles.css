@@ -1645,21 +1645,31 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .faq-question {
+  padding: 20px;
+  background: var(--white);
+  border-radius: 10px;
+  cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 0;
-  cursor: pointer;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 0;
 }
 
 .faq-question:hover {
-  color: var(--primary-pink);
+  background: #f9fafb;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .faq-question h3 {
+  margin: 0;
   font-size: 1.1rem;
   font-weight: 600;
+  color: var(--text-primary);
+  flex: 1;
+  text-align: left;
 }
 
 .faq-toggle {
@@ -1667,6 +1677,8 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
   color: var(--primary-pink);
   transition: transform 0.3s ease;
+  flex-shrink: 0;
+  margin-left: 15px;
 }
 
 .faq-item.active .faq-toggle {
@@ -1676,12 +1688,15 @@ h1, h2, h3, h4, h5, h6 {
 .faq-answer {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease;
+  transition: max-height 0.3s ease, padding 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+  padding: 0 20px;
 }
 
 .faq-item.active .faq-answer {
-  max-height: 200px;
-  padding-bottom: 1rem;
+  max-height: 300px;
+  padding: 20px;
+  opacity: 1;
 }
 
 .faq-sidebar {
@@ -2396,6 +2411,14 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0 15px;
   }
   
+  /* Hero Section - Mobile Background */
+  .hero {
+    background-image: url('./images/images:gym-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll;
+  }
+  
   /* Header & Navigation */
   .nav-menu {
     position: fixed;
@@ -2927,4 +2950,28 @@ video.trainer-video {
     background-size: 20px 20px;
     background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
   }
+}
+
+/* Statistics Section - Mobile Background */
+.statistics {
+  background-image: url('./images/ec01aba9945ea53d228975a8c7d8b196.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: scroll;
+}
+
+/* Video Section - Mobile Background */
+.video-section {
+  background-image: url('./images/3fc83fddf9d75a1cd9d8834c67df6084.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: scroll;
+}
+
+/* Support Section - Mobile Background */
+.support {
+  background-image: url('./images/7fa80b95f37f1ec56935b7a77f881859.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: scroll;
 }

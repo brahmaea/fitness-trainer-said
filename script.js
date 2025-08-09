@@ -485,14 +485,37 @@ document.addEventListener('DOMContentLoaded', function() {
         question.addEventListener('click', function() {
             const isActive = item.classList.contains('active');
             
-            // Close all other FAQ items
+            // Close all other FAQ items first
             faqItems.forEach(otherItem => {
-                otherItem.classList.remove('active');
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                    const otherAnswer = otherItem.querySelector('.faq-answer');
+                    if (otherAnswer) {
+                        otherAnswer.style.maxHeight = '0';
+                        otherAnswer.style.opacity = '0';
+                        otherAnswer.style.padding = '0 20px';
+                    }
+                }
             });
             
             // Toggle current item
             if (!isActive) {
                 item.classList.add('active');
+                if (answer) {
+                    // Use setTimeout to ensure the transition works properly
+                    setTimeout(() => {
+                        answer.style.maxHeight = '300px';
+                        answer.style.opacity = '1';
+                        answer.style.padding = '20px';
+                    }, 10);
+                }
+            } else {
+                item.classList.remove('active');
+                if (answer) {
+                    answer.style.maxHeight = '0';
+                    answer.style.opacity = '0';
+                    answer.style.padding = '0 20px';
+                }
             }
         });
     });
@@ -1054,7 +1077,7 @@ document.addEventListener('DOMContentLoaded', function() {
         trainerDots.forEach((dot, index) => {
             dot.addEventListener('click', function(e) {
                 e.preventDefault();
-                currentTrainerSlide(index + 1);
+                currentTrainerSlide(index); // Исправлено: передаем index напрямую
             });
         });
     }
@@ -1110,7 +1133,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         function currentTrainerSlide(index) {
             console.log('Current trainer after slide called with index:', index);
-            currentTrainerSlideIndex = index - 1;
+            currentTrainerSlideIndex = index; // Исправлено: убираем -1
             showTrainerSlide(currentTrainerSlideIndex);
         }
         
