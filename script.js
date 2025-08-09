@@ -30,7 +30,92 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // Инициализация ленивой загрузки poster изображений
+    initializeVideoPosterLazyLoading();
 });
+
+// ФУНКЦИЯ ДЛЯ ЛЕНИВОЙ ЗАГРУЗКИ POSTER ИЗОБРАЖЕНИЙ ВИДЕО
+function initializeVideoPosterLazyLoading() {
+    const videos = document.querySelectorAll('video[data-poster]');
+    
+    if (videos.length === 0) return;
+
+    // Intersection Observer для ленивой загрузки poster изображений
+    const videoObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const video = entry.target;
+                const posterUrl = video.getAttribute('data-poster');
+                
+                if (posterUrl && !video.getAttribute('poster')) {
+                    loadVideoPoster(video, posterUrl);
+                }
+                
+                observer.unobserve(video);
+            }
+        });
+    }, {
+        rootMargin: '50px 0px',
+        threshold: 0.1
+    });
+
+    // Наблюдение за всеми видео
+    videos.forEach(video => {
+        videoObserver.observe(video);
+    });
+}
+
+// ФУНКЦИЯ ДЛЯ ЗАГРУЗКИ POSTER ИЗОБРАЖЕНИЯ
+function loadVideoPoster(video, posterUrl) {
+    return new Promise((resolve, reject) => {
+        const img = new Image();
+        
+        img.onload = function() {
+            video.setAttribute('poster', posterUrl);
+            video.style.opacity = '1';
+            resolve(posterUrl);
+        };
+        
+        img.onerror = function() {
+            console.warn('Не удалось загрузить poster изображение:', posterUrl);
+            reject(new Error('Failed to load poster image'));
+        };
+        
+        img.src = posterUrl;
+    });
+}
+
+// ФУНКЦИЯ ДЛЯ ОБНОВЛЕНИЯ POSTER ПРИ СМЕНЕ СЛАЙДА В КАРУСЕЛИ
+function updateVideoPosterOnSlideChange(carouselContainer) {
+    const activeSlide = carouselContainer.querySelector('.trainer-slide.active, .result-slide.active, .support-slide.active');
+    
+    if (activeSlide) {
+        const video = activeSlide.querySelector('video[data-poster]');
+        if (video) {
+            const posterUrl = video.getAttribute('data-poster');
+            if (posterUrl && !video.getAttribute('poster')) {
+                loadVideoPoster(video, posterUrl);
+            }
+        }
+    }
+}
+
+// МОДИФИЦИРОВАННАЯ ФУНКЦИЯ ДЛЯ ПОКАЗА СЛАЙДА (добавляем обновление poster)
+function showSlideWithPosterUpdate(carouselContainer, index, slides, dots) {
+    // Скрываем все слайды
+    slides.forEach(slide => slide.classList.remove('active'));
+    if (dots) dots.forEach(dot => dot.classList.remove('active'));
+    
+    // Показываем активный слайд
+    if (slides[index]) {
+        slides[index].classList.add('active');
+        if (dots && dots[index]) dots[index].classList.add('active');
+        
+        // Обновляем poster для видео в активном слайде
+        updateVideoPosterOnSlideChange(carouselContainer);
+    }
+}
 
 // ФУНКЦИЯ ДЛЯ ГЕНЕРАЦИИ ПЕРСОНАЛИЗИРОВАННЫХ РЕКОМЕНДАЦИЙ
 function generatePersonalizedRecommendations(name, gender, age, height, weight, activity, goal, targetCalories, proteinGrams, fatGrams, carbGrams) {
@@ -786,30 +871,20 @@ document.addEventListener('DOMContentLoaded', function() {
         function showSlide(index) {
             console.log('Showing slide:', index, 'Total slides:', slides.length);
             
-            // Hide all slides first
-            slides.forEach((slide, i) => {
-                slide.classList.remove('active');
-                slide.style.opacity = '0';
-                slide.style.zIndex = '1';
-            });
+            // Скрываем все слайды
+            slides.forEach(slide => slide.classList.remove('active'));
+            if (dots) dots.forEach(dot => dot.classList.remove('active'));
             
-            // Remove active class from all dots
-            dots.forEach((dot, i) => {
-                dot.classList.remove('active');
-            });
-            
-            // Show only current slide
+            // Показываем активный слайд
             if (slides[index]) {
                 slides[index].classList.add('active');
-                slides[index].style.opacity = '1';
-                slides[index].style.zIndex = '2';
-                console.log('Slide', index, 'shown with opacity 1 and z-index 2');
-            }
-            
-            // Activate current dot
-            if (dots[index]) {
-                dots[index].classList.add('active');
-                console.log('Dot', index, 'activated');
+                if (dots && dots[index]) dots[index].classList.add('active');
+                
+                // Обновляем poster для видео в активном слайде
+                const carouselContainer = slides[index].closest('.carousel-container');
+                if (carouselContainer) {
+                    updateVideoPosterOnSlideChange(carouselContainer);
+                }
             }
         }
         
@@ -916,30 +991,20 @@ document.addEventListener('DOMContentLoaded', function() {
         function showTrainerSlide(index) {
             console.log('Showing trainer slide:', index, 'Total slides:', trainerSlides.length);
             
-            // Hide all slides first
-            trainerSlides.forEach((slide, i) => {
-                slide.classList.remove('active');
-                slide.style.opacity = '0';
-                slide.style.zIndex = '1';
-            });
+            // Скрываем все слайды
+            trainerSlides.forEach(slide => slide.classList.remove('active'));
+            if (trainerDots) trainerDots.forEach(dot => dot.classList.remove('active'));
             
-            // Remove active class from all dots
-            trainerDots.forEach((dot, i) => {
-                dot.classList.remove('active');
-            });
-            
-            // Show only current slide
+            // Показываем активный слайд
             if (trainerSlides[index]) {
                 trainerSlides[index].classList.add('active');
-                trainerSlides[index].style.opacity = '1';
-                trainerSlides[index].style.zIndex = '2';
-                console.log('Trainer slide', index, 'shown with opacity 1 and z-index 2');
-            }
-            
-            // Activate current dot
-            if (trainerDots[index]) {
-                trainerDots[index].classList.add('active');
-                console.log('Trainer dot', index, 'activated');
+                if (trainerDots && trainerDots[index]) trainerDots[index].classList.add('active');
+                
+                // Обновляем poster для видео в активном слайде
+                const carouselContainer = trainerSlides[index].closest('.trainer-carousel-container');
+                if (carouselContainer) {
+                    updateVideoPosterOnSlideChange(carouselContainer);
+                }
             }
         }
         
@@ -1011,30 +1076,20 @@ document.addEventListener('DOMContentLoaded', function() {
         function showTrainerSlide(index) {
             console.log('Showing trainer after slide:', index, 'Total slides:', trainerSlides.length);
             
-            // Hide all slides first
-            trainerSlides.forEach((slide, i) => {
-                slide.classList.remove('active');
-                slide.style.opacity = '0';
-                slide.style.zIndex = '1';
-            });
+            // Скрываем все слайды
+            trainerSlides.forEach(slide => slide.classList.remove('active'));
+            if (trainerDots) trainerDots.forEach(dot => dot.classList.remove('active'));
             
-            // Remove active class from all dots
-            trainerDots.forEach((dot, i) => {
-                dot.classList.remove('active');
-            });
-            
-            // Show only current slide
+            // Показываем активный слайд
             if (trainerSlides[index]) {
                 trainerSlides[index].classList.add('active');
-                trainerSlides[index].style.opacity = '1';
-                trainerSlides[index].style.zIndex = '2';
-                console.log('Trainer after slide', index, 'shown with opacity 1 and z-index 2');
-            }
-            
-            // Activate current dot
-            if (trainerDots[index]) {
-                trainerDots[index].classList.add('active');
-                console.log('Trainer after dot', index, 'activated');
+                if (trainerDots && trainerDots[index]) trainerDots[index].classList.add('active');
+                
+                // Обновляем poster для видео в активном слайде
+                const carouselContainer = trainerSlides[index].closest('.trainer-carousel-container');
+                if (carouselContainer) {
+                    updateVideoPosterOnSlideChange(carouselContainer);
+                }
             }
         }
         
@@ -1143,30 +1198,20 @@ document.addEventListener('DOMContentLoaded', function() {
         function showSupportSlide(index) {
             console.log('Showing support slide:', index, 'Total slides:', supportSlides.length);
             
-            // Hide all slides first
-            supportSlides.forEach((slide, i) => {
-                slide.classList.remove('active');
-                slide.style.opacity = '0';
-                slide.style.zIndex = '1';
-            });
+            // Скрываем все слайды
+            supportSlides.forEach(slide => slide.classList.remove('active'));
+            if (supportDots) supportDots.forEach(dot => dot.classList.remove('active'));
             
-            // Remove active class from all dots
-            supportDots.forEach((dot, i) => {
-                dot.classList.remove('active');
-            });
-            
-            // Show only current slide
+            // Показываем активный слайд
             if (supportSlides[index]) {
                 supportSlides[index].classList.add('active');
-                supportSlides[index].style.opacity = '1';
-                supportSlides[index].style.zIndex = '2';
-                console.log('Support slide', index, 'shown with opacity 1 and z-index 2');
-            }
-            
-            // Activate current dot
-            if (supportDots[index]) {
-                supportDots[index].classList.add('active');
-                console.log('Support dot', index, 'activated');
+                if (supportDots && supportDots[index]) supportDots[index].classList.add('active');
+                
+                // Обновляем poster для видео в активном слайде
+                const carouselContainer = supportSlides[index].closest('.support-carousel-container');
+                if (carouselContainer) {
+                    updateVideoPosterOnSlideChange(carouselContainer);
+                }
             }
         }
         

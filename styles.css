@@ -2886,3 +2886,45 @@ h1, h2, h3, h4, h5, h6 {
     transform: scale(0.5);
   }
 } 
+
+/* Video poster loading improvements */
+video[data-poster] {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+video[data-poster][poster] {
+  opacity: 1;
+}
+
+video.intro-video,
+video.trainer-video {
+  background-color: #000;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Mobile video poster optimization */
+@media (max-width: 768px) {
+  video[data-poster] {
+    background-size: contain;
+  }
+  
+  video.intro-video,
+  video.trainer-video {
+    background-attachment: scroll;
+  }
+}
+
+/* Fallback for video posters on mobile */
+@media (max-width: 480px) {
+  video[data-poster]:not([poster]) {
+    background-image: linear-gradient(45deg, #f0f0f0 25%, transparent 25%), 
+                      linear-gradient(-45deg, #f0f0f0 25%, transparent 25%), 
+                      linear-gradient(45deg, transparent 75%, #f0f0f0 75%), 
+                      linear-gradient(-45deg, transparent 75%, #f0f0f0 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  }
+}
