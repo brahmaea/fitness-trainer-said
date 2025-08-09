@@ -31,91 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Инициализация ленивой загрузки poster изображений
-    initializeVideoPosterLazyLoading();
-});
-
-// ФУНКЦИЯ ДЛЯ ЛЕНИВОЙ ЗАГРУЗКИ POSTER ИЗОБРАЖЕНИЙ ВИДЕО
-function initializeVideoPosterLazyLoading() {
-    const videos = document.querySelectorAll('video[data-poster]');
-    
-    if (videos.length === 0) return;
-
-    // Intersection Observer для ленивой загрузки poster изображений
-    const videoObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const video = entry.target;
-                const posterUrl = video.getAttribute('data-poster');
-                
-                if (posterUrl && !video.getAttribute('poster')) {
-                    loadVideoPoster(video, posterUrl);
-                }
-                
-                observer.unobserve(video);
-            }
-        });
-    }, {
-        rootMargin: '50px 0px',
-        threshold: 0.1
     });
-
-    // Наблюдение за всеми видео
-    videos.forEach(video => {
-        videoObserver.observe(video);
-    });
-}
-
-// ФУНКЦИЯ ДЛЯ ЗАГРУЗКИ POSTER ИЗОБРАЖЕНИЯ
-function loadVideoPoster(video, posterUrl) {
-    return new Promise((resolve, reject) => {
-        const img = new Image();
-        
-        img.onload = function() {
-            video.setAttribute('poster', posterUrl);
-            video.style.opacity = '1';
-            resolve(posterUrl);
-        };
-        
-        img.onerror = function() {
-            console.warn('Не удалось загрузить poster изображение:', posterUrl);
-            reject(new Error('Failed to load poster image'));
-        };
-        
-        img.src = posterUrl;
-    });
-}
-
-// ФУНКЦИЯ ДЛЯ ОБНОВЛЕНИЯ POSTER ПРИ СМЕНЕ СЛАЙДА В КАРУСЕЛИ
-function updateVideoPosterOnSlideChange(carouselContainer) {
-    const activeSlide = carouselContainer.querySelector('.trainer-slide.active, .result-slide.active, .support-slide.active');
-    
-    if (activeSlide) {
-        const video = activeSlide.querySelector('video[data-poster]');
-        if (video) {
-            const posterUrl = video.getAttribute('data-poster');
-            if (posterUrl && !video.getAttribute('poster')) {
-                loadVideoPoster(video, posterUrl);
-            }
-        }
-    }
-}
-
-// МОДИФИЦИРОВАННАЯ ФУНКЦИЯ ДЛЯ ПОКАЗА СЛАЙДА (добавляем обновление poster)
-function showSlideWithPosterUpdate(carouselContainer, index, slides, dots) {
-    // Скрываем все слайды
-    slides.forEach(slide => slide.classList.remove('active'));
-    if (dots) dots.forEach(dot => dot.classList.remove('active'));
-    
-    // Показываем активный слайд
-    if (slides[index]) {
-        slides[index].classList.add('active');
-        if (dots && dots[index]) dots[index].classList.add('active');
-        
-        // Обновляем poster для видео в активном слайде
-        updateVideoPosterOnSlideChange(carouselContainer);
-    }
-}
 
 // ФУНКЦИЯ ДЛЯ ГЕНЕРАЦИИ ПЕРСОНАЛИЗИРОВАННЫХ РЕКОМЕНДАЦИЙ
 function generatePersonalizedRecommendations(name, gender, age, height, weight, activity, goal, targetCalories, proteinGrams, fatGrams, carbGrams) {
@@ -634,22 +550,7 @@ function closeModal(modalType) {
     }
 }
 
-// Add loading animation for images
-function preloadImages() {
-    const images = document.querySelectorAll('.placeholder-image');
-    images.forEach(img => {
-        img.style.opacity = '0';
-        img.style.transition = 'opacity 0.3s ease';
-        
-        // Simulate image loading
-        setTimeout(() => {
-            img.style.opacity = '1';
-        }, Math.random() * 1000);
-    });
-}
 
-// Initialize image loading
-document.addEventListener('DOMContentLoaded', preloadImages);
 
 // Add hover effects for interactive elements
 document.addEventListener('DOMContentLoaded', function() {
@@ -903,11 +804,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 slides[index].classList.add('active');
                 if (dots && dots[index]) dots[index].classList.add('active');
                 
-                // Обновляем poster для видео в активном слайде
-                const carouselContainer = slides[index].closest('.carousel-container');
-                if (carouselContainer) {
-                    updateVideoPosterOnSlideChange(carouselContainer);
-                }
+
             }
         }
         
@@ -1023,11 +920,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 trainerSlides[index].classList.add('active');
                 if (trainerDots && trainerDots[index]) trainerDots[index].classList.add('active');
                 
-                // Обновляем poster для видео в активном слайде
-                const carouselContainer = trainerSlides[index].closest('.trainer-carousel-container');
-                if (carouselContainer) {
-                    updateVideoPosterOnSlideChange(carouselContainer);
-                }
+
             }
         }
         
@@ -1108,11 +1001,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 trainerSlides[index].classList.add('active');
                 if (trainerDots && trainerDots[index]) trainerDots[index].classList.add('active');
                 
-                // Обновляем poster для видео в активном слайде
-                const carouselContainer = trainerSlides[index].closest('.trainer-carousel-container');
-                if (carouselContainer) {
-                    updateVideoPosterOnSlideChange(carouselContainer);
-                }
+
             }
         }
         
@@ -1230,11 +1119,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 supportSlides[index].classList.add('active');
                 if (supportDots && supportDots[index]) supportDots[index].classList.add('active');
                 
-                // Обновляем poster для видео в активном слайде
-                const carouselContainer = supportSlides[index].closest('.support-carousel-container');
-                if (carouselContainer) {
-                    updateVideoPosterOnSlideChange(carouselContainer);
-                }
+
             }
         }
         

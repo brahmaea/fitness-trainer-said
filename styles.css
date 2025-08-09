@@ -2411,14 +2411,6 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0 15px;
   }
   
-  /* Hero Section - Mobile Background */
-  .hero {
-    background-image: url('./images/images:gym-background.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: scroll;
-  }
-  
   /* Header & Navigation */
   .nav-menu {
     position: fixed;
@@ -2908,70 +2900,5 @@ h1, h2, h3, h4, h5, h6 {
   .mobile-menu-toggle span {
     transform: scale(0.5);
   }
-} 
-
-/* Video poster loading improvements */
-video[data-poster] {
-  opacity: 0;
-  transition: opacity 0.3s ease;
 }
 
-video[data-poster][poster] {
-  opacity: 1;
-}
-
-video.intro-video,
-video.trainer-video {
-  background-color: #000;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-/* Mobile video poster optimization */
-@media (max-width: 768px) {
-  video[data-poster] {
-    background-size: contain;
-  }
-  
-  video.intro-video,
-  video.trainer-video {
-    background-attachment: scroll;
-  }
-}
-
-/* Fallback for video posters on mobile */
-@media (max-width: 480px) {
-  video[data-poster]:not([poster]) {
-    background-image: linear-gradient(45deg, #f0f0f0 25%, transparent 25%), 
-                      linear-gradient(-45deg, #f0f0f0 25%, transparent 25%), 
-                      linear-gradient(45deg, transparent 75%, #f0f0f0 75%), 
-                      linear-gradient(-45deg, transparent 75%, #f0f0f0 75%);
-    background-size: 20px 20px;
-    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
-  }
-}
-
-/* Statistics Section - Mobile Background */
-.statistics {
-  background-image: url('./images/ec01aba9945ea53d228975a8c7d8b196.jpg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: scroll;
-}
-
-/* Video Section - Mobile Background */
-.video-section {
-  background-image: url('./images/3fc83fddf9d75a1cd9d8834c67df6084.jpg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: scroll;
-}
-
-/* Support Section - Mobile Background */
-.support {
-  background-image: url('./images/7fa80b95f37f1ec56935b7a77f881859.jpg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: scroll;
-}
