@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный тренер по фитнесу Саид Алиев - Построй фигуру своей мечты</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">
+                    <h1>Личный тренер Саид Алиев</h1>
+                    <div class="social-icons">
+                        <a href="https://t.me/pringyyyy" target="_blank" class="social-icon telegram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.69-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.27-.48.74-.74 2.87-1.25 4.79-2.09 5.76-2.51 2.7-1.18 3.26-1.38 3.64-1.39.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+                            </svg>
+                        </a>
+                        <a href="https://wa.me/+79616643141" target="_blank" class="social-icon whatsapp">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#materials">ПОЛЕЗНЫЕ МАТЕРИАЛЫ</a></li>
+                    <li><a href="#calculator">КАЛЬКУЛЯТОР КБЖУ</a></li>
+                    <li><a href="#about">ОБО МНЕ</a></li>
+                    <li><a href="#reviews">ОТЗЫВЫ</a></li>
+                </ul>
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2 class="hero-title">Создай фигуру своей мечты</h2>
+                    <p class="hero-subtitle">С личным тренером и ежедневной поддержкой</p>
+                    <ul class="hero-benefits">
+                        <li>Первые результаты уже через 3-4 недели</li>
+                        <li>Поддержка 24/7 в удобном мессенджере</li>
+                        <li>Работаю с любыми целями: похудение, набор, рельеф</li>
+                        <li>Питание 80/20: правильное + любимые вкусняшки</li>
+                    </ul>
+                    <button class="cta-button" onclick="openModal('consultation')">ЗАПИСАТЬСЯ НА КОНСУЛЬТАЦИЮ</button>
+                </div>
+                <div class="hero-image">
+                    <img src="./images/iScreen Shoter - 20250808175647832.jpg" alt="Тренировка клиента" class="trainer-photo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATISTICS SECTION -->
+    <section class="statistics">
+        <div class="container">
+            <div class="statistics-content">
+                <div class="statistics-image">
+                    <img src="./images/2025-08-08 14.35.08.jpg" alt="Тренер Саид Алиев" class="statistics-trainer-img">
+                </div>
+                <div class="statistics-text">
+                    <h2 class="section-title">82% людей недовольны своей фигурой</h2>
+                    <p class="section-subtitle">Каждый день за руку я буду вести тебя на пути к твоей цели!</p>
+                    <ul class="solutions-list">
+                        <li>Ставим цель — похудение, набор, рельеф, восстановление</li>
+                        <li>Подготавливаю планы питания для тебя</li>
+                        <li>Разрабатываю план тренировок для зала или дома</li>
+                        <li>Каждый день отвечаю на твои вопросы и отслеживаю твой прогресс</li>
+                        <li>Научу как сохранить результат и работать самостоятельно</li>
+                    </ul>
+                    <button class="cta-button" onclick="openModal('consultation')">ЗАПИСАТЬСЯ НА КОНСУЛЬТАЦИЮ</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALCULATOR SECTION -->
+    <section class="calculator-section" id="calculator">
+        <div class="container">
+            <h2 class="section-title">Рассчитай свою норму калорий и БЖУ</h2>
+            <p class="section-subtitle">Получи персональные рекомендации от профессионального тренера</p>
+            
+            <div class="calculator-container">
+                <div class="calculator-form" id="calculatorForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="calc-name">Имя:</label>
+                            <input type="text" id="calc-name" name="calc-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="calc-telegram">Телеграм:</label>
+                            <input type="tel" id="calc-telegram" name="calc-telegram" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="calc-phone">Телефон:</label>
+                            <input type="tel" id="calc-phone" name="calc-phone" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Пол:</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="gender" value="male" required>
+                                    <span class="radio-custom"></span>
+                                    Мужской
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="gender" value="female" required>
+                                    <span class="radio-custom"></span>
+                                    Женский
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="age">Возраст (лет):</label>
+                            <input type="number" id="age" name="age" min="15" max="100" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="height">Рост (см):</label>
+                            <input type="number" id="height" name="height" min="100" max="250" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="weight">Вес (кг):</label>
+                            <input type="number" id="weight" name="weight" min="30" max="300" step="0.1" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="activity">Уровень активности:</label>
+                            <select id="activity" name="activity" required>
+                                <option value="">Выберите уровень активности</option>
+                                <option value="1.2">Минимальная (сидячий образ жизни)</option>
+                                <option value="1.375">Низкая (легкие упражнения 1-3 раза в неделю)</option>
+                                <option value="1.55">Умеренная (умеренные упражнения 3-5 раз в неделю)</option>
+                                <option value="1.725">Высокая (интенсивные упражнения 6-7 раз в неделю)</option>
+                                <option value="1.9">Очень высокая (физическая работа + тренировки)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Цель:</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="goal" value="lose" required>
+                                    <span class="radio-custom"></span>
+                                    Похудение
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="goal" value="maintain" required>
+                                    <span class="radio-custom"></span>
+                                    Поддержание веса
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="goal" value="gain" required>
+                                    <span class="radio-custom"></span>
+                                    Набор массы
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="button" class="calculate-button" onclick="sendForm2()">Рассчитать КБЖУ</button>
+                </div>
+                
+                <div class="results-container" id="resultsContainer" style="display: none;">
+                    <h3>Ваши результаты:</h3>
+                    <div class="results-grid">
+                        <div class="result-card">
+                            <div class="result-icon">🔥</div>
+                            <h4>Норма калорий</h4>
+                            <p class="result-value" id="calories">0 ккал/день</p>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-icon">🥩</div>
+                            <h4>Белки</h4>
+                            <p class="result-value" id="proteins">0 г/день</p>
+                            <p class="result-calories" id="proteinsCalories">0 ккал</p>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-icon">🥑</div>
+                            <h4>Жиры</h4>
+                            <p class="result-value" id="fats">0 г/день</p>
+                            <p class="result-calories" id="fatsCalories">0 ккал</p>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-icon">🍞</div>
+                            <h4>Углеводы</h4>
+                            <p class="result-value" id="carbs">0 г/день</p>
+                            <p class="result-calories" id="carbsCalories">0 ккал</p>
+                        </div>
+                    </div>
+                    <div class="recommendations" id="recommendations">
+                        <h4>Персональные рекомендации:</h4>
+                        <p id="recommendationsText"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIDEO SECTION -->
+    <section class="video-section">
+        <div class="container">
+            <div class="video-content">
+                <div class="video-left">
+                    <video 
+                        controls
+                        class="intro-video">
+                        <source src="./images/0808.mp4" type="video/mp4">
+                        Ваш браузер не поддерживает видео
+                    </video>
+                </div>
+                <div class="video-right">
+                    <div class="video-header">
+                        <h2 class="video-title">Фигура мечты</h2>
+                        <h3 class="video-subtitle">для тебя если, ты</h3>
+                    </div>
+            <ul class="video-goals">
+                <li>Мечтаешь укрепить здоровье и привести себя в форму</li>
+                <li>Пытаешься избавиться от боков, живота и целлюлита</li>
+                <li>Хочешь жить полной здоровой жизнью, без оглядки на правила и запреты</li>
+            </ul>
+            <button class="cta-button video-cta-button" onclick="openModal('consultation')">ЗАПИСАТЬСЯ НА КОНСУЛЬТАЦИЮ</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SUPPORT SECTION -->
+    <section class="support">
+        <div class="container">
+            <h2 class="section-title">Контролирую и мотивирую тебя 24 часа в сутки</h2>
+            <p class="section-subtitle">Работаем в популярных мессенджерах, которые будут удобны тебе</p>
+            <div class="support-carousel">
+                <button class="support-carousel-btn support-carousel-prev">❮</button>
+                <button class="support-carousel-btn support-carousel-next">❯</button>
+                
+                <div class="support-carousel-container">
+                    <div class="support-slide active">
+                        <img src="./images/2025-08-08 13.30.00.jpg" alt="Скрин работы 1" class="support-image">
+                    </div>
+                    <div class="support-slide">
+                        <img src="./images/2025-08-08 13.29.19.jpg" alt="Скрин работы 2" class="support-image">
+                    </div>
+                    <div class="support-slide">
+                        <img src="./images/iScreen Shoter - Telegram - 250808142604.jpg" alt="Скрин работы 3" class="support-image">
+                    </div>
+                    <div class="support-slide">
+                        <img src="./images/2025-08-08 13.30.10.jpg" alt="Скрин работы 4" class="support-image">
+                    </div>
+                </div>
+                
+                <div class="support-carousel-dots">
+                    <span class="support-carousel-dot active"></span>
+                    <span class="support-carousel-dot"></span>
+                    <span class="support-carousel-dot"></span>
+                    <span class="support-carousel-dot"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ADVANTAGES SECTION -->
+    <section class="advantages">
+        <div class="container">
+            <h2 class="section-title">Научу тебя как сохранить результат навсегда!</h2>
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <div class="advantage-icon">🥗</div>
+                    <h3>Объясню и расскажу все секреты правильного питания</h3>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">🚫</div>
+                    <h3>Никаких голодовок, срывов и диет</h3>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">📖</div>
+                    <h3>Ежедневно новые интересные рецепты</h3>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">🛒</div>
+                    <h3>Объясню как выбирать продукты в магазине и на что обращать внимание</h3>
+                </div>
+            </div>
+            <button class="consultation-button" onclick="openModal('consultation')">ЗАПИСАТЬСЯ НА КОНСУЛЬТАЦИЮ</button>
+        </div>
+    </section>
+
+
+
+    <!-- RESULTS SECTION -->
+    <section class="results" id="reviews">
+        <div class="container">
+            <h2 class="section-title">Благодаря индивидуальной работе - сбросишь лишний вес, тело станет стройным и подтянутым</h2>
+            <div class="results-carousel">
+                <button class="carousel-btn carousel-prev">❮</button>
+                <button class="carousel-btn carousel-next">❯</button>
+                
+                <div class="carousel-container">
+                    <div class="result-slide active">
+                        <div class="before-after">
+                            <div class="photo-item">
+                                <img src="./images/iScreen Shoter - Просмотр - 250809121457.jpg" alt="До" class="result-image before">
+                                <div class="photo-label">ДО</div>
+                            </div>
+                            <div class="photo-item">
+                                <img src="./images/iScreen Shoter - Просмотр - 250809121409.jpg" alt="После" class="result-image after">
+                                <div class="photo-label">ПОСЛЕ</div>
+                            </div>
+                        </div>
+                        <div class="result-caption">Результат клиента за 4 месяца</div>
+                    </div>
+                    <div class="result-slide">
+                        <div class="before-after">
+                            <div class="photo-item">
+                                <img src="./images/2025-08-08 11.17.46.jpg" alt="До" class="result-image before">
+                                <div class="photo-label">ДО</div>
+                            </div>
+                            <div class="photo-item">
+                                <img src="./images/2025-08-08 11.17.33.jpg" alt="После" class="result-image after">
+                                <div class="photo-label">ПОСЛЕ</div>
+                            </div>
+                        </div>
+                        <div class="result-caption">Результат клиента за 3 месяца</div>
+                    </div>
+                </div>
+                
+                <div class="carousel-dots">
+                    <span class="carousel-dot active"></span>
+                    <span class="carousel-dot"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PERSONAL STORY SECTION -->
+    <section class="personal-story" id="about">
+        <div class="container">
+            <h2 class="section-title">Все еще думаешь что это не реально?</h2>
+            <p class="story-text">У меня тоже когда то была мечта о стройном и красивом теле. Самое главное системность, поддержка и понимание того что делаешь!</p>
+            
+            <div class="trainer-comparison">
+                <div class="trainer-before-section">
+                    <h3 class="comparison-title">ДО</h3>
+                    <div class="trainer-carousel trainer-carousel-before">
+                        <button class="trainer-carousel-btn trainer-carousel-prev">❮</button>
+                        <button class="trainer-carousel-btn trainer-carousel-next">❯</button>
+                        
+                        <div class="trainer-carousel-container">
+                            <div class="trainer-slide active">
+                                <video class="trainer-video" controls>
+                                    <source src="./images/IMG_0672.MOV" type="video/mp4">
+                                    Ваш браузер не поддерживает видео.
+                                </video>
+                            </div>
+                            <div class="trainer-slide">
+                                <img src="./images/2025-08-08 12.48.00.jpg" alt="До тренировок" class="trainer-image">
+                            </div>
+                        </div>
+                        
+                        <div class="trainer-carousel-dots">
+                            <span class="trainer-carousel-dot active"></span>
+                            <span class="trainer-carousel-dot"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="trainer-after-section">
+                    <h3 class="comparison-title">ПОСЛЕ</h3>
+                    <div class="trainer-carousel trainer-carousel-after">
+                        <button class="trainer-carousel-btn trainer-carousel-prev">❮</button>
+                        <button class="trainer-carousel-btn trainer-carousel-next">❯</button>
+                        
+                        <div class="trainer-carousel-container">
+                            <div class="trainer-slide active">
+                                <video class="trainer-video" controls>
+                                    <source src="./images/IMG_6693.MOV" type="video/mp4">
+                                    Ваш браузер не поддерживает видео.
+                                </video>
+                            </div>
+                            <div class="trainer-slide">
+                                <video class="trainer-video" controls>
+                                    <source src="./images/IMG_8109.MOV" type="video/mp4">
+                                    Ваш браузер не поддерживает видео.
+                                </video>
+                            </div>
+                            <div class="trainer-slide">
+                                <img src="./images/iScreen Shoter - Telegram - 250808142911.jpg" alt="Тренер после 3" class="trainer-image">
+                            </div>
+                            <div class="trainer-slide">
+                                <video class="trainer-video" controls>
+                                    <source src="./images/IMG_2666.MOV" type="video/mp4">
+                                    Ваш браузер не поддерживает видео.
+                                </video>
+                            </div>
+                            <div class="trainer-slide">
+                                <img src="./images/iScreen Shoter - Telegram - 250808142834.jpg" alt="Тренер после 5" class="trainer-image">
+                            </div>
+                            <div class="trainer-slide">
+                                <video class="trainer-video" controls>
+                                    <source src="./images/IMG_2770.MOV" type="video/mp4">
+                                    Ваш браузер не поддерживает видео.
+                                </video>
+                            </div>
+                        </div>
+                        
+                        <div class="trainer-carousel-dots">
+                            <span class="trainer-carousel-dot active"></span>
+                            <span class="trainer-carousel-dot"></span>
+                            <span class="trainer-carousel-dot"></span>
+                            <span class="trainer-carousel-dot"></span>
+                            <span class="trainer-carousel-dot"></span>
+                            <span class="trainer-carousel-dot"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="comparison-cta">
+                <button class="cta-button comparison-cta-button" onclick="openModal('consultation')">ХОЧУ ТАКЖЕ</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUALIFICATION SECTION -->
+    <section class="qualification">
+        <div class="container">
+            <h2 class="section-title">Ну как вам?</h2>
+            <p class="qualification-text">Я всегда совершенствую свои знания и результаты говорят сами за себя!</p>
+            
+            <div class="certificates-section" style="display: flex; justify-content: center;">
+                <div class="certificates-list">
+                    <h3>Мой опыт:</h3>
+                    <ul>
+                        <li>3 года опыта фитнес-тренером</li>
+                        <li>Медицинское образование</li>
+                        <li>Личная трансформация +24 кг</li>
+                        <li>Восстановил травму позвоночника с помощью спорта</li>
+                        <li>Индивидуальный подход к каждому</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- FINAL CTA SECTION -->
+    <section class="final-cta">
+        <div class="container">
+            <h2 class="section-title">Сделай первый шаг к твоему новому телу</h2>
+            <div class="cta-content">
+                <div class="cta-info">
+                    <h3>Записись на консультацию</h3>
+                    <p class="cta-subtitle">До 30 минут в удобное время</p>
+                    <p class="cta-urgency">Осталось всего 4 бесплатных места</p>
+                    <ul class="cta-benefits">
+                        <li>Индивидуальный план питания</li>
+                        <li>Персональная программа тренировок</li>
+                        <li>Поддержка 24/7 в мессенджерах</li>
+                    </ul>
+                </div>
+                <div class="consultation-form" id="consultationForm">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Ваше имя">
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="telegram" name="telegram" placeholder="Ваш телеграм">
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" name="phone" placeholder="Ваш телефон">
+                    </div>
+                    <button type="button" class="cta-button" onclick="sendForm1(); return false;">Записаться на консультацию</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq" id="materials">
+        <div class="container">
+            <h2 class="section-title">Популярные вопросы</h2>
+            <div class="faq-content">
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Как похудеть?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Для эффективного похудения нужен комплексный подход: правильное питание, регулярные тренировки и поддержка специалиста. Я помогу составить индивидуальный план.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Я никогда не тренировалась, с чего начать?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Начнем с простых упражнений и постепенно увеличим нагрузку. Я учту ваш уровень подготовки и составлю программу, которая подойдет именно вам.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Я из другого города/страны, могу ли я тренироваться с вами?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Конечно! Я работаю онлайн с клиентами из любой точки мира. Все консультации и поддержка происходят через мессенджеры.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Я веган/вегетарианец, могу ли я у вас тренироваться?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Да, я составляю планы питания с учетом любых пищевых предпочтений и ограничений. Главное - сбалансированность рациона.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Какие тренировки вы предлагаете?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Я предлагаю тренировки для дома и зала: силовые, кардио, функциональные, на растяжку. Программа подбирается индивидуально под ваши цели.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Обязательно ли употреблять спортивное питание?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Нет, спортивное питание не обязательно. При правильном рационе можно достичь отличных результатов и без добавок.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Мои фото кто-нибудь увидит?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Ваши фото конфиденциальны и используются только для отслеживания прогресса. Без вашего разрешения они не публикуются.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Сколько необходимо тренировок для достижения результата?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Первые результаты видны уже через 4 недели регулярных тренировок. Для значительных изменений нужно 3-6 месяцев.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Как часто можно задавать вопросы и консультироваться?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Я отвечаю на ваши вопросы 24/7. Можете обращаться в любое время - я всегда на связи.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Нужен ли для тренировок дома спортивный инвентарь?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Начинаем с тренировок с собственным весом. По мере прогресса можно добавить гантели, резинки или другой инвентарь.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Где можно почитать отзывы о вашей работе?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Отзывы моих клиентов можно найти в разделе "Отзывы" на этом сайте, а также в моих социальных сетях.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-sidebar">
+                    <div class="trainer-photo-faq">
+                        <img src="./images/2025-08-08 14.51.56.jpg" alt="Фото тренера Саид Алиев" class="trainer-photo-faq-img">
+                    </div>
+                    <button class="ask-question-btn" onclick="openModal('question')">Задать вопрос</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Личный тренер по фитнесу Саид Алиев</h3>
+                    <p>Построй фигуру своей мечты с профессиональной поддержкой</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#materials">Полезные материалы</a>
+                    <a href="#about">Обо мне</a>
+                    <a href="#reviews">Отзывы</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-credits">Дизайн и разработка сайта by <a href="https://t.me/egor_digital" target="_blank" class="telegram-link-footer">@egor.digital</a></p>
+                <p>&copy; 2025 Саид Алиев. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODALS -->
+    <div class="modal" id="consultationModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('consultation')">&times;</span>
+            <h2>Записаться на консультацию</h2>
+            <div class="modal-form">
+                <div class="form-group">
+                    <input type="text" placeholder="Ваше имя">
+                </div>
+                <div class="form-group">
+                    <input type="tel" placeholder="Ваш телеграм">
+                </div>
+                <div class="form-group">
+                    <input type="tel" placeholder="Ваш телефон">
+                </div>
+                <button type="button" class="cta-button" onclick="sendForm3(); return false;">Отправить заявку</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="questionModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('question')">&times;</span>
+            <h2>Задать вопрос</h2>
+            <div class="modal-form">
+                <div class="form-group">
+                    <input type="text" placeholder="Ваше имя">
+                </div>
+                <div class="form-group">
+                    <input type="tel" placeholder="Ваш телеграм">
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Ваш вопрос" rows="4"></textarea>
+                </div>
+                <button type="button" class="cta-button" onclick="sendForm4(); return false;">Отправить вопрос</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
