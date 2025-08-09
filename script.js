@@ -1,3 +1,37 @@
+// МОБИЛЬНОЕ МЕНЮ
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-menu a');
+
+    // Переключение мобильного меню
+    if (mobileMenuToggle && navMenu) {
+        mobileMenuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            mobileMenuToggle.classList.toggle('active');
+            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        // Закрытие меню при клике на ссылку
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navMenu.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Закрытие меню при клике вне его
+        document.addEventListener('click', function(event) {
+            if (!navMenu.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
+                navMenu.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    }
+});
+
 // ФУНКЦИЯ ДЛЯ ГЕНЕРАЦИИ ПЕРСОНАЛИЗИРОВАННЫХ РЕКОМЕНДАЦИЙ
 function generatePersonalizedRecommendations(name, gender, age, height, weight, activity, goal, targetCalories, proteinGrams, fatGrams, carbGrams) {
     let recommendations = `
