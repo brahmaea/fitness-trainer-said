@@ -1863,13 +1863,9 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0 15px;
   }
   
-  .nav-menu {
-    display: none;
-  }
+  /* Мобильное меню скрыто по умолчанию, показывается через JavaScript */
   
-  .mobile-menu-toggle {
-    display: flex;
-  }
+
   
   .social-icons {
     gap: 0.5rem;
@@ -2529,20 +2525,7 @@ body.menu-open {
     box-shadow: 0 6px 20px rgba(217, 70, 161, 0.6);
   }
 
-  .mobile-menu-toggle {
-    display: flex;
-    background: rgba(255, 255, 255, 0.2);
-    border: 2px solid rgba(255, 255, 255, 0.4);
-    border-radius: 8px;
-    padding: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  }
-  
-  .mobile-menu-toggle:hover {
-    background: rgba(255, 255, 255, 0.3);
-    border-color: rgba(255, 255, 255, 0.6);
-    transform: translateY(-1px);
-  }
+
 
   .header {
     position: relative;
@@ -2814,45 +2797,7 @@ body.menu-open {
     max-width: 500px;
   }
   
-  /* Mobile Menu Improvements */
-  .nav-menu {
-    padding: 20px 15px;
-  }
-  
-  .nav-menu a {
-    font-size: 1.1rem;
-    padding: 15px 25px;
-    min-width: 200px;
-    margin: 6px 0;
-  }
-  
-  .mobile-menu-toggle {
-    margin-right: 10px;
-    padding: 10px;
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-  }
-  
-  .mobile-menu-toggle span {
-    width: 20px;
-    height: 2px;
-  }
-  
-  /* Additional mobile menu improvements for very small screens */
-  .nav-menu {
-    padding: 15px 10px;
-  }
-  
-  .nav-menu a {
-    font-size: 1rem;
-    padding: 12px 20px;
-    min-width: 180px;
-    margin: 5px 0;
-  }
-  
-  .nav-menu li {
-    margin: 10px 0;
-  }
+
 } 
 
 /* Additional Mobile Improvements */
@@ -3014,30 +2959,7 @@ body.menu-open {
     gap: 0.5rem;
   }
   
-  /* Mobile Menu */
-  .nav-menu {
-    padding: 15px 10px;
-  }
-  
-  .nav-menu a {
-    font-size: 1rem;
-    padding: 12px 20px;
-    min-width: 180px;
-    margin: 5px 0;
-  }
-  
-  .mobile-menu-toggle {
-    margin-right: 10px;
-  }
-  
-  .mobile-menu-toggle span {
-    width: 20px;
-    height: 2px;
-  }
-  
-  .nav-menu li {
-    margin: 10px 0;
-  }
+
 }
 
 /* iOS Safari specific fixes */
@@ -3049,12 +2971,7 @@ body.menu-open {
   }
 }
 
-/* High DPI displays */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  .mobile-menu-toggle span {
-    transform: scale(0.5);
-  }
-}
+
 
 
 
