@@ -617,12 +617,23 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: row;
   gap: 4rem;
   align-items: center;
   position: relative;
   z-index: 2;
+}
+
+.hero-text {
+  flex: 1;
+}
+
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hero-title {
@@ -664,11 +675,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1.2rem;
 }
 
-.hero-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 
 /* Placeholder Images */
 .placeholder-image {
@@ -1877,7 +1884,8 @@ h1, h2, h3, h4, h5, h6 {
   }
   
   .hero-content {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 2rem;
     text-align: center;
   }
@@ -2551,7 +2559,8 @@ body.menu-open {
   
   /* Hero Section */
   .hero-content {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 2rem;
     text-align: center;
   }
@@ -2574,8 +2583,25 @@ body.menu-open {
     margin-bottom: 0.8rem;
   }
   
-  .hero-image {
-    order: -1;
+  /* Мобильный порядок элементов */
+  .mobile-order-1 {
+    order: 1;
+  }
+  
+  .mobile-order-2 {
+    order: 2;
+  }
+  
+  .mobile-order-3 {
+    order: 3;
+  }
+  
+  .mobile-order-4 {
+    order: 4;
+  }
+  
+  .mobile-order-5 {
+    order: 5;
   }
   
   .trainer-photo {
