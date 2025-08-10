@@ -1880,10 +1880,39 @@ h1, h2, h3, h4, h5, h6 {
     grid-template-columns: 1fr;
     gap: 2rem;
     text-align: center;
+    display: grid;
+    grid-template-areas: 
+      "title"
+      "image"
+      "subtitle"
+      "benefits"
+      "button";
   }
   
   .hero-title {
+    grid-area: title;
+    order: 1;
     font-size: 2.5rem;
+  }
+  
+  .hero-image {
+    grid-area: image;
+    order: 2;
+  }
+  
+  .hero-subtitle {
+    grid-area: subtitle;
+    order: 3;
+  }
+  
+  .hero-benefits {
+    grid-area: benefits;
+    order: 4;
+  }
+  
+  .cta-button {
+    grid-area: button;
+    order: 5;
   }
   
   .section-title {
@@ -2554,17 +2583,35 @@ body.menu-open {
     grid-template-columns: 1fr;
     gap: 2rem;
     text-align: center;
+    display: grid;
+    grid-template-areas: 
+      "title"
+      "image"
+      "subtitle"
+      "benefits"
+      "button";
   }
   
   .hero-title {
+    grid-area: title;
+    order: 1;
     font-size: 2.5rem;
   }
   
+  .hero-image {
+    grid-area: image;
+    order: 2;
+  }
+  
   .hero-subtitle {
+    grid-area: subtitle;
+    order: 3;
     font-size: 1.1rem;
   }
   
   .hero-benefits {
+    grid-area: benefits;
+    order: 4;
     text-align: left;
     padding-left: 20px;
   }
@@ -2572,6 +2619,11 @@ body.menu-open {
   .hero-benefits li {
     font-size: 0.95rem;
     margin-bottom: 0.8rem;
+  }
+  
+  .cta-button {
+    grid-area: button;
+    order: 5;
   }
   
   .trainer-photo {
