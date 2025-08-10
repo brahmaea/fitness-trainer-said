@@ -1217,6 +1217,49 @@ document.addEventListener('DOMContentLoaded', function() {
     setTimeout(initializeSupportCarousel, 100);
     setTimeout(initializeSupportCarousel, 500);
     setTimeout(initializeSupportCarousel, 1000);
+    
+    // Улучшаем отображение видео на мобильных устройствах
+    const introVideo = document.querySelector('.intro-video');
+    if (introVideo) {
+        // Устанавливаем постер для мобильных устройств
+        if (window.innerWidth <= 768) {
+            introVideo.setAttribute('poster', './images/iScreen Shoter - 20250808175647832.jpg');
+        }
+        
+        // Обработчик для показа постера при скролле на мобильных
+        let isVideoVisible = false;
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    isVideoVisible = true;
+                    // Показываем постер на мобильных устройствах
+                    if (window.innerWidth <= 768 && !introVideo.played.length) {
+                        introVideo.load(); // Перезагружаем видео для показа постера
+                    }
+                } else {
+                    isVideoVisible = false;
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        observer.observe(introVideo);
+        
+        // Обработчик для показа постера при паузе на мобильных
+        introVideo.addEventListener('pause', function() {
+            if (window.innerWidth <= 768) {
+                // Показываем постер при паузе
+                introVideo.load();
+            }
+        });
+        
+        // Обработчик для показа постера при окончании видео на мобильных
+        introVideo.addEventListener('ended', function() {
+            if (window.innerWidth <= 768) {
+                // Показываем постер при окончании
+                introVideo.load();
+            }
+        });
+    }
 }); 
 
  

@@ -863,6 +863,17 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 20px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   background: #000;
+  object-fit: cover;
+}
+
+/* Улучшаем отображение постера */
+.intro-video::-webkit-media-controls-poster {
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.intro-video::-webkit-media-controls {
+  border-radius: 20px;
 }
 
 .video-cta-button {
@@ -1939,6 +1950,12 @@ h1, h2, h3, h4, h5, h6 {
   
   .intro-video {
     max-width: 100%;
+    object-fit: cover;
+  }
+  
+  /* Улучшаем отображение постера на мобильных */
+  .intro-video::-webkit-media-controls-poster {
+    object-fit: cover;
   }
   
   .video-right {
@@ -1953,6 +1970,14 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 1.5rem;
     font-size: 1rem;
     padding: 0.8rem 1.5rem;
+  }
+  
+  /* Принудительно показываем постер на мобильных при скролле */
+  .intro-video:not(:playing) {
+    background-image: url('./images/iScreen Shoter - 20250808175647832.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
   
   .statistics-content {
@@ -2711,6 +2736,12 @@ body.menu-open {
   .intro-video {
     max-width: 100%;
     height: auto;
+    object-fit: cover;
+  }
+  
+  /* Улучшаем отображение постера на мобильных */
+  .intro-video::-webkit-media-controls-poster {
+    object-fit: cover;
   }
   
   .video-right {
@@ -3015,6 +3046,14 @@ body.menu-open {
     gap: 0.5rem;
   }
   
+  /* Принудительно показываем постер на мобильных при скролле */
+  .intro-video:not(:playing) {
+    background-image: url('./images/iScreen Shoter - 20250808175647832.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
 
 }
 
@@ -3024,6 +3063,94 @@ body.menu-open {
   .form-group select,
   .form-group textarea {
     font-size: 16px;
+  }
+}
+
+/* Дополнительные стили для лучшего отображения видео на мобильных */
+@media (max-width: 768px) {
+  .intro-video {
+    /* Улучшаем отображение постера на мобильных */
+    background-color: transparent;
+  }
+  
+  /* Принудительно показываем постер при скролле */
+  .intro-video:not(:playing):not(:paused) {
+    background-image: url('./images/iScreen Shoter - 20250808175647832.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+/* Стили для лучшего отображения постера на всех устройствах */
+.intro-video {
+  /* Улучшаем отображение постера */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Стили для мобильных устройств */
+@media (max-width: 768px) {
+  .intro-video {
+    /* Принудительно показываем постер на мобильных */
+    background-image: url('./images/iScreen Shoter - 20250808175647832.jpg');
+  }
+}
+
+/* Дополнительные стили для лучшего отображения постера */
+.intro-video::-webkit-media-controls-poster {
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.intro-video::-webkit-media-controls {
+  border-radius: 20px;
+}
+
+/* Стили для принудительного показа постера на мобильных */
+@media (max-width: 768px) {
+  .intro-video:not(:playing) {
+    background-image: url('./images/iScreen Shoter - 20250808175647832.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+/* Стили для мобильных устройств с маленьким экраном */
+@media (max-width: 480px) {
+  .intro-video:not(:playing) {
+    background-image: url('./images/iScreen Shoter - 20250808175647832.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+/* Дополнительные стили для лучшего отображения видео на мобильных */
+@media (max-width: 768px) {
+  .intro-video {
+    /* Улучшаем отображение постера на мобильных */
+    background-color: transparent;
+  }
+  
+  /* Принудительно показываем постер при скролле */
+  .intro-video:not(:playing):not(:paused) {
+    background-image: url('./images/iScreen Shoter - 20250808175647832.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+/* Простые стили для показа постера видео на мобильных */
+@media (max-width: 768px) {
+  .intro-video {
+    background-image: url('./images/iScreen Shoter - 20250808175647832.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 }
 
