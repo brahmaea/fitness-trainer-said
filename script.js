@@ -2,11 +2,55 @@
 document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.mobile-menu-toggle');
     const mobileMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-menu a');
 
     if (hamburger && mobileMenu) {
-        hamburger.addEventListener('click', function() {
+        // Переключение мобильного меню
+        hamburger.addEventListener('click', function(e) {
+            e.stopPropagation();
             hamburger.classList.toggle('active');
             mobileMenu.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        });
+
+        // Закрытие меню при клике на ссылку
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    // Закрываем меню
+                    hamburger.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    document.body.classList.remove('menu-open');
+                    
+                    // Плавный скролл к секции
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Закрытие меню при клике вне его
+        document.addEventListener('click', function(e) {
+            if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            }
+        });
+
+        // Закрытие меню при нажатии Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            }
         });
     }
 });
@@ -440,17 +484,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (videoPlaceholder) {
         videoPlaceholder.addEventListener('click', function() {
             alert('Видео будет добавлено позже');
-        });
-    }
-
-    // Mobile menu toggle
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const navMenu = document.querySelector('.nav-menu');
-    
-    if (mobileMenuToggle && navMenu) {
-        mobileMenuToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-            this.classList.toggle('active');
         });
     }
 
