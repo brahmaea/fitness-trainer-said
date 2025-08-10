@@ -1889,6 +1889,10 @@ h1, h2, h3, h4, h5, h6 {
       "button";
   }
   
+  .hero-text {
+    display: contents;
+  }
+  
   .hero-title {
     grid-area: title;
     order: 1;
@@ -2590,6 +2594,10 @@ body.menu-open {
       "subtitle"
       "benefits"
       "button";
+  }
+  
+  .hero-text {
+    display: contents;
   }
   
   .hero-title {
