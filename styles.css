@@ -2615,10 +2615,10 @@ body.menu-open {
     display: grid;
     grid-template-areas: 
       "title"
-      "image"
       "subtitle"
       "benefits"
-      "button";
+      "button"
+      "image";
   }
   
   .hero-text {
@@ -2628,23 +2628,18 @@ body.menu-open {
   .hero-title {
     grid-area: title;
     order: 1;
-    font-size: 2.5rem;
-  }
-  
-  .hero-image {
-    grid-area: image;
-    order: 2;
+    font-size: 2rem;
   }
   
   .hero-subtitle {
     grid-area: subtitle;
-    order: 3;
-    font-size: 1.1rem;
+    order: 2;
+    font-size: 1rem;
   }
   
   .hero-benefits {
     grid-area: benefits;
-    order: 4;
+    order: 3;
     text-align: left;
     padding-left: 20px;
   }
@@ -2656,6 +2651,11 @@ body.menu-open {
   
   .cta-button {
     grid-area: button;
+    order: 4;
+  }
+  
+  .hero-image {
+    grid-area: image;
     order: 5;
   }
   
@@ -3151,6 +3151,55 @@ body.menu-open {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+  }
+}
+
+/* Стили для hero секции на маленьких экранах */
+@media (max-width: 480px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+    display: grid;
+    grid-template-areas: 
+      "title"
+      "subtitle"
+      "benefits"
+      "button"
+      "image";
+  }
+  
+  .hero-text {
+    display: contents;
+  }
+  
+  .hero-title {
+    grid-area: title;
+    order: 1;
+    font-size: 2rem;
+  }
+  
+  .hero-subtitle {
+    grid-area: subtitle;
+    order: 2;
+    font-size: 1rem;
+  }
+  
+  .hero-benefits {
+    grid-area: benefits;
+    order: 3;
+    text-align: left;
+    padding-left: 20px;
+  }
+  
+  .cta-button {
+    grid-area: button;
+    order: 4;
+  }
+  
+  .hero-image {
+    grid-area: image;
+    order: 5;
   }
 }
 
