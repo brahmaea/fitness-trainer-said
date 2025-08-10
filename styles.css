@@ -3147,7 +3147,7 @@ body.menu-open {
 /* Простые стили для показа постера видео на мобильных */
 @media (max-width: 768px) {
   .intro-video {
-    background-image: url('./images/iScreen Shoter - 20250808175647832.jpg');
+    background-image: url('./images/iScreen Shoter - Safari - 250810123249.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
