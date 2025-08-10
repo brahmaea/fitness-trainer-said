@@ -104,7 +104,14 @@
                         </div>
                         <div class="form-group">
                             <label for="calc-telegram">Телеграм:</label>
-                            <input type="tel" id="calc-telegram" name="calc-telegram" required>
+                            <input 
+                                type="text" 
+                                id="calc-telegram" 
+                                name="calc-telegram" 
+                                placeholder="@username или ссылка" 
+                                inputmode="text"
+                                pattern="^@?[a-zA-Z0-9_]+$"
+                                required>
                         </div>
                         <div class="form-group">
                             <label for="calc-phone">Телефон:</label>
@@ -226,12 +233,14 @@
         <div class="container">
             <div class="video-content">
                 <div class="video-left">
-                    <video 
-                        controls
-                        class="intro-video">
-                        <source src="./images/0808.mp4" type="video/mp4">
-                        Ваш браузер не поддерживает видео
-                    </video>
+                    <div class="video-container">
+                        <img src="./images/0808-Обложка.jpg" class="video-preview" alt="Видео превью">
+                        <div class="play-button">▶</div>
+                        <video class="hidden-video" controls style="display: none;">
+                            <source src="./images/0808.mp4" type="video/mp4">
+                            Ваш браузер не поддерживает видео
+                        </video>
+                    </div>
                 </div>
                 <div class="video-right">
                     <div class="video-header">
@@ -371,10 +380,14 @@
                         
                         <div class="trainer-carousel-container">
                             <div class="trainer-slide active">
-                                <video class="trainer-video" controls>
-                                    <source src="./images/IMG_0672.MOV" type="video/mp4">
-                                    Ваш браузер не поддерживает видео.
-                                </video>
+                                <div class="video-container">
+                                    <img src="./images/2025-08-08 12.48.00.jpg" class="video-preview" alt="Видео превью">
+                                    <div class="play-button">▶</div>
+                                    <video class="hidden-video" controls style="display: none;">
+                                        <source src="./images/IMG_0672.MOV" type="video/mp4">
+                                        Ваш браузер не поддерживает видео.
+                                    </video>
+                                </div>
                             </div>
                             <div class="trainer-slide">
                                 <img src="./images/2025-08-08 12.48.00.jpg" alt="До тренировок" class="trainer-image">
@@ -396,34 +409,50 @@
                         
                         <div class="trainer-carousel-container">
                             <div class="trainer-slide active">
-                                <video class="trainer-video" controls>
-                                    <source src="./images/IMG_6693.MOV" type="video/mp4">
-                                    Ваш браузер не поддерживает видео.
-                                </video>
+                                <div class="video-container">
+                                    <img src="./images/iScreen Shoter - Telegram - 250808142911.jpg" class="video-preview" alt="Видео превью">
+                                    <div class="play-button">▶</div>
+                                    <video class="hidden-video" controls style="display: none;">
+                                        <source src="./images/IMG_6693.MOV" type="video/mp4">
+                                        Ваш браузер не поддерживает видео.
+                                    </video>
+                                </div>
                             </div>
                             <div class="trainer-slide">
-                                <video class="trainer-video" controls>
-                                    <source src="./images/IMG_8109.MOV" type="video/mp4">
-                                    Ваш браузер не поддерживает видео.
-                                </video>
+                                <div class="video-container">
+                                    <img src="./images/iScreen Shoter - Telegram - 250808142834.jpg" class="video-preview" alt="Видео превью">
+                                    <div class="play-button">▶</div>
+                                    <video class="hidden-video" controls style="display: none;">
+                                        <source src="./images/IMG_8109.MOV" type="video/mp4">
+                                        Ваш браузер не поддерживает видео.
+                                    </video>
+                                </div>
                             </div>
                             <div class="trainer-slide">
                                 <img src="./images/iScreen Shoter - Telegram - 250808142911.jpg" alt="Тренер после 3" class="trainer-image">
                             </div>
                             <div class="trainer-slide">
-                                <video class="trainer-video" controls>
-                                    <source src="./images/IMG_2666.MOV" type="video/mp4">
-                                    Ваш браузер не поддерживает видео.
-                                </video>
+                                <div class="video-container">
+                                    <img src="./images/iScreen Shoter - Telegram - 250808142834.jpg" class="video-preview" alt="Видео превью">
+                                    <div class="play-button">▶</div>
+                                    <video class="hidden-video" controls style="display: none;">
+                                        <source src="./images/IMG_2666.MOV" type="video/mp4">
+                                        Ваш браузер не поддерживает видео.
+                                    </video>
+                                </div>
                             </div>
                             <div class="trainer-slide">
                                 <img src="./images/iScreen Shoter - Telegram - 250808142834.jpg" alt="Тренер после 5" class="trainer-image">
                             </div>
                             <div class="trainer-slide">
-                                <video class="trainer-video" controls>
-                                    <source src="./images/IMG_2770.MOV" type="video/mp4">
-                                    Ваш браузер не поддерживает видео.
-                                </video>
+                                <div class="video-container">
+                                    <img src="./images/iScreen Shoter - Telegram - 250808142834.jpg" class="video-preview" alt="Видео превью">
+                                    <div class="play-button">▶</div>
+                                    <video class="hidden-video" controls style="display: none;">
+                                        <source src="./images/IMG_2770.MOV" type="video/mp4">
+                                        Ваш браузер не поддерживает видео.
+                                    </video>
+                                </div>
                             </div>
                         </div>
                         
@@ -488,7 +517,13 @@
                         <input type="text" id="name" name="name" placeholder="Ваше имя">
                     </div>
                     <div class="form-group">
-                        <input type="tel" id="telegram" name="telegram" placeholder="Ваш телеграм">
+                        <input 
+                            type="text" 
+                            id="telegram" 
+                            name="telegram" 
+                            placeholder="@username или ссылка" 
+                            inputmode="text"
+                            pattern="^@?[a-zA-Z0-9_]+$">
                     </div>
                     <div class="form-group">
                         <input type="tel" id="phone" name="phone" placeholder="Ваш телефон">
@@ -631,7 +666,10 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-info">
-                    <h3>Личный тренер по фитнесу Саид Алиев</h3>
+                    <h2 class="footer-title">
+                        <div class="title-line-1">Личный тренер по фитнесу</div>
+                        <div class="title-line-2">Саид Алиев</div>
+                    </h2>
                     <p>Построй фигуру своей мечты с профессиональной поддержкой</p>
                 </div>
                 <div class="footer-links">
@@ -656,7 +694,11 @@
                     <input type="text" placeholder="Ваше имя">
                 </div>
                 <div class="form-group">
-                    <input type="tel" placeholder="Ваш телеграм">
+                    <input 
+                        type="text" 
+                        placeholder="@username или ссылка" 
+                        inputmode="text"
+                        pattern="^@?[a-zA-Z0-9_]+$">
                 </div>
                 <div class="form-group">
                     <input type="tel" placeholder="Ваш телефон">
@@ -675,7 +717,11 @@
                     <input type="text" placeholder="Ваше имя">
                 </div>
                 <div class="form-group">
-                    <input type="tel" placeholder="Ваш телеграм">
+                    <input 
+                        type="text" 
+                        placeholder="@username или ссылка" 
+                        inputmode="text"
+                        pattern="^@?[a-zA-Z0-9_]+$">
                 </div>
                 <div class="form-group">
                     <textarea placeholder="Ваш вопрос" rows="4"></textarea>

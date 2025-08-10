@@ -1,37 +1,37 @@
 // МОБИЛЬНОЕ МЕНЮ
 document.addEventListener('DOMContentLoaded', function() {
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const navMenu = document.querySelector('.nav-menu');
+    const hamburger = document.querySelector('.mobile-menu-toggle');
+    const mobileMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-menu a');
 
     // Переключение мобильного меню
-    if (mobileMenuToggle && navMenu) {
-        mobileMenuToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-            mobileMenuToggle.classList.toggle('active');
-            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+    if (hamburger && mobileMenu) {
+        hamburger.addEventListener('click', function(e) {
+            e.stopPropagation();
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
         });
 
         // Закрытие меню при клике на ссылку
         navLinks.forEach(link => {
             link.addEventListener('click', function() {
-                navMenu.classList.remove('active');
-                mobileMenuToggle.classList.remove('active');
-                document.body.style.overflow = '';
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.classList.remove('menu-open');
             });
         });
 
         // Закрытие меню при клике вне его
-        document.addEventListener('click', function(event) {
-            if (!navMenu.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
-                navMenu.classList.remove('active');
-                mobileMenuToggle.classList.remove('active');
-                document.body.style.overflow = '';
+        document.addEventListener('click', function(e) {
+            if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.classList.remove('menu-open');
             }
         });
     }
-
-    });
+});
 
 // ФУНКЦИЯ ДЛЯ ГЕНЕРАЦИИ ПЕРСОНАЛИЗИРОВАННЫХ РЕКОМЕНДАЦИЙ
 function generatePersonalizedRecommendations(name, gender, age, height, weight, activity, goal, targetCalories, proteinGrams, fatGrams, carbGrams) {
@@ -1206,4 +1206,24 @@ document.addEventListener('DOMContentLoaded', function() {
     setTimeout(initializeSupportCarousel, 100);
     setTimeout(initializeSupportCarousel, 500);
     setTimeout(initializeSupportCarousel, 1000);
+}); 
+
+// Video Container Click Handler
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.video-container').forEach(container => {
+        const preview = container.querySelector('.video-preview');
+        const playBtn = container.querySelector('.play-button');
+        const video = container.querySelector('.hidden-video');
+        
+        if (preview && playBtn && video) {
+            [preview, playBtn].forEach(element => {
+                element.addEventListener('click', () => {
+                    preview.style.display = 'none';
+                    playBtn.style.display = 'none';
+                    video.style.display = 'block';
+                    video.play();
+                });
+            });
+        }
+    });
 }); 
